@@ -7,10 +7,11 @@ from sklearn.tree import DecisionTreeClassifier;
 ! git clone --recursive https://github.com/selva86/datasets.git;
 
 !ls
+#  QUI UTILIZZO IL DATASET ZOO.CSV
 
 dataset = pd.read_csv('datasets/Zoo.csv')
 
-train_items = dataset.iloc[:80,:-1]; #prendi le prime 80 righe e tutte le colonne tranne l'ultima
+train_items = dataset.iloc[:80,:-1]; #prendo le prime 80 righe e tutte le colonne tranne l'ultima
 
 test_items = dataset.iloc[80:,:-1]
 
@@ -26,7 +27,7 @@ print(predictions)
 
 print(dataset.iloc[80:,-1])
 
-print("The prediction accuracy is: ",ID3.score(test_items,test_target)*100,"%")
+print("The first ID3 accuracy is: ",ID3.score(test_items,test_target)*100,"%")
 
 # DA QUI UTILIZZO IL DATASET ADULT.CSV
 
@@ -66,7 +67,7 @@ print(test_target2);
 
 predictions = ID32.predict(test_items2);
 
-print("The prediction accuracy is: ",ID32.score(test_items2,test_target2)*100,"%")
+print("The second ID3 accuracy is: ",ID32.score(test_items2,test_target2)*100,"%")
 
 print(dataset2["fnlwgt"].value_counts()); #capisco quali sono i valori da sistemare
 
@@ -147,5 +148,5 @@ ID33 = DecisionTreeClassifier(criterion = 'entropy').fit(train_items3,train_targ
 
 predictions = ID33.predict(test_items3);
 
-print("The prediction accuracy is: ",ID33.score(test_items3,test_target3)*100,"%")
+print("The third ID3 accuracy is: ",ID33.score(test_items3,test_target3)*100,"%")
 
